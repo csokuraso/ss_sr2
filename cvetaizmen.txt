@@ -1,0 +1,24 @@
+bool Finish = false;
+while (window.isOpen()) {
+    updatepole(Memory, rows, cols, N, maxcolor);
+
+     for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < cols; ++j)
+        {
+            RectangleShape square(Vector2f(squarpole, squarpole));
+            square.setPosition(j * squarpole, i * squarpole);
+
+            Color customColor(90, 65, 0);
+            switch (Memory[i][j]) {
+            case 1: {
+                Color customColor(219, 0, 69);
+                square.setFillColor(customColor);
+                squares.push_back(square);
+                break;
+            }
+            case 2: {
+                Color customColor(157, 0, 219);
+                square.setFillColor(customColor);
+                squares.push_back(square);
+       
