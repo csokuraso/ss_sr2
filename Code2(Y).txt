@@ -1,0 +1,34 @@
+int main()
+{
+    int rows, cols, squarpole, N;
+    cout << "Виберіть розмір клітин (1 - малі, 2 - середні, 3 - великі): ";
+    cin >> squarpole;
+    switch (squarpole) {
+    case 1:
+        squarpole = 20;
+#ifndef DEBUG
+        rows = 40;
+        cols = 60;
+#endif
+        break;
+    case 2:
+        squarpole = 30;
+#ifndef DEBUG
+        rows = 30;
+        cols = 40;
+#endif
+        break;
+    case 3:
+        squarpole = 40;
+#ifndef DEBUG
+        rows = 20;
+        cols = 30;
+#endif
+        break;
+    default:
+        squarpole = 30;
+#ifndef DEBUG
+        rows = 30;
+        cols = 40;
+#endif
+    }

@@ -1,0 +1,194 @@
+void updatepole(int**& pole, const int rows, const int cols, int N, int maxcolor)
+{
+    int count = 0;
+    bool** dataArr = new bool* [rows];
+    for (int i = 0; i < rows; i++)
+    {
+        dataArr[i] = new bool[cols];
+    }
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < cols; ++j)
+        {
+            dataArr[i][j] = false;
+            if (i == 0)
+            {
+                if (j == 0)
+                {
+                    if (pole[i][j] + 1 == pole[i + 1][j] || pole[i][j] + 1 - maxcolor == pole[i + 1][j])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i][j + 1] || pole[i][j] + 1 - maxcolor == pole[i][j + 1])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i + 1][j + 1] || pole[i][j] + 1 - maxcolor == pole[i + 1][j + 1])
+                        count++;
+                    if (count >= N)
+                    {
+                        dataArr[i][j] = true;
+                    }
+                    count = 0;
+                }
+                else if (j == cols - 1)
+                {
+                    if (pole[i][j] + 1 == pole[i + 1][j] || pole[i][j] + 1 - maxcolor == pole[i + 1][j])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i][j - 1] || pole[i][j] + 1 - maxcolor == pole[i][j - 1])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i + 1][j - 1] || pole[i][j] + 1 - maxcolor == pole[i + 1][j - 1])
+                        count++;
+                    if (count >= N)
+                    {
+                        dataArr[i][j] = true;
+                    }
+                    count = 0;
+                }
+                else
+                {
+                    if (pole[i][j] + 1 == pole[i][j + 1] || pole[i][j] + 1 - maxcolor == pole[i][j + 1])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i][j - 1] || pole[i][j] + 1 - maxcolor == pole[i][j - 1])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i + 1][j] || pole[i][j] + 1 - maxcolor == pole[i + 1][j])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i + 1][j + 1] || pole[i][j] + 1 - maxcolor == pole[i + 1][j + 1])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i + 1][j - 1] || pole[i][j] + 1 - maxcolor == pole[i + 1][j - 1])
+                        count++;
+                    if (count >= N)
+                    {
+                        dataArr[i][j] = true;
+                    }
+                    count = 0;
+                }
+
+
+            }
+            else if (i == rows - 1)
+            {
+                if (j == 0)
+                {
+                    if (pole[i][j] + 1 == pole[i - 1][j] || pole[i][j] + 1 - maxcolor == pole[i - 1][j])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i][j + 1] || pole[i][j] + 1 - maxcolor == pole[i][j + 1])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i - 1][j + 1] || pole[i][j] + 1 - maxcolor == pole[i - 1][j + 1])
+                        count++;
+                    if (count >= N)
+                    {
+                        dataArr[i][j] = true;
+                    }
+                    count = 0;
+                }
+                else if (j == cols - 1)
+                {
+                    if (pole[i][j] + 1 == pole[i - 1][j] || pole[i][j] + 1 - maxcolor == pole[i - 1][j])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i][j - 1] || pole[i][j] + 1 - maxcolor == pole[i][j - 1])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i - 1][j - 1] || pole[i][j] + 1 - maxcolor == pole[i - 1][j - 1])
+                        count++;
+                    if (count >= N)
+                    {
+                        dataArr[i][j] = true;
+                    }
+                    count = 0;
+                }
+                else
+                {
+                    if (pole[i][j] + 1 == pole[i][j + 1] || pole[i][j] + 1 - maxcolor == pole[i][j + 1])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i][j - 1] || pole[i][j] + 1 - maxcolor == pole[i][j - 1])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i - 1][j] || pole[i][j] + 1 - maxcolor == pole[i - 1][j])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i - 1][j + 1] || pole[i][j] + 1 - maxcolor == pole[i - 1][j + 1])
+                        count++;
+                    if (pole[i][j] + 1 == pole[i - 1][j - 1] || pole[i][j] + 1 - maxcolor == pole[i - 1][j - 1])
+                        count++;
+                    if (count >= N)
+                    {
+                        dataArr[i][j] = true;
+                    }
+                    count = 0;
+                }
+            }
+            else if (j == 0)
+            {
+                if (pole[i][j] + 1 == pole[i - 1][j] || pole[i][j] + 1 - maxcolor == pole[i - 1][j])
+                    count++;
+                if (pole[i][j] + 1 == pole[i - 1][j + 1] || pole[i][j] + 1 - maxcolor == pole[i - 1][j + 1])
+                    count++;
+                if (pole[i][j] + 1 == pole[i][j + 1] || pole[i][j] + 1 - maxcolor == pole[i][j + 1])
+                    count++;
+                if (pole[i][j] + 1 == pole[i + 1][j] || pole[i][j] + 1 - maxcolor == pole[i + 1][j])
+                    count++;
+                if (pole[i][j] + 1 == pole[i + 1][j + 1] || pole[i][j] + 1 - maxcolor == pole[i + 1][j + 1])
+                    count++;
+                if (count >= N)
+                {
+                    dataArr[i][j] = true;
+                }
+                count = 0;
+            }
+            else if (j == cols - 1)
+            {
+                if (pole[i][j] + 1 == pole[i - 1][j] || pole[i][j] + 1 - maxcolor == pole[i - 1][j])
+                    count++;
+                if (pole[i][j] + 1 == pole[i - 1][j - 1] || pole[i][j] + 1 - maxcolor == pole[i - 1][j - 1])
+                    count++;
+                if (pole[i][j] + 1 == pole[i][j - 1] || pole[i][j] + 1 - maxcolor == pole[i][j - 1])
+                    count++;
+                if (pole[i][j] + 1 == pole[i + 1][j] || pole[i][j] + 1 - maxcolor == pole[i + 1][j])
+                    count++;
+
+                if (pole[i][j] + 1 == pole[i + 1][j - 1] || pole[i][j] + 1 - maxcolor == pole[i + 1][j - 1])
+                    count++;
+                if (count >= N)
+                {
+                    dataArr[i][j] = true;
+                }
+                count = 0;
+            }
+            else
+            {
+                if (pole[i][j] + 1 == pole[i - 1][j] || pole[i][j] + 1 - maxcolor == pole[i - 1][j])
+                    count++;
+                if (pole[i][j] + 1 == pole[i - 1][j - 1] || pole[i][j] + 1 - maxcolor == pole[i - 1][j - 1])
+                    count++;
+                if (pole[i][j] + 1 == pole[i - 1][j + 1] || pole[i][j] + 1 - maxcolor == pole[i - 1][j + 1])
+                    count++;
+                if (pole[i][j] + 1 == pole[i][j - 1] || pole[i][j] + 1 - maxcolor == pole[i][j - 1])
+                    count++;
+                if (pole[i][j] + 1 == pole[i][j + 1] || pole[i][j] + 1 - maxcolor == pole[i][j + 1])
+                    count++;
+                if (pole[i][j] + 1 == pole[i + 1][j] || pole[i][j] + 1 - maxcolor == pole[i + 1][j])
+                    count++;
+                if (pole[i][j] + 1 == pole[i + 1][j - 1] || pole[i][j] + 1 - maxcolor == pole[i + 1][j - 1])
+                    count++;
+                if (pole[i][j] + 1 == pole[i + 1][j + 1] || pole[i][j] + 1 - maxcolor == pole[i + 1][j + 1])
+                    count++;
+                if (count >= N)
+                {
+                    dataArr[i][j] = true;
+                }
+                count = 0;
+            }
+        }
+    }
+
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < cols; ++j)
+        {
+            if (dataArr[i][j])
+            {
+                if (pole[i][j] == maxcolor)
+                    pole[i][j] = 0;
+                pole[i][j] = pole[i][j] + 1;
+            }
+        }
+    }
+
+    for (int i = 0; i < rows; i++)
+        delete[] dataArr[i];
+    delete[] dataArr;
+}
